@@ -12,13 +12,13 @@
                     <h6 class="m-0 font-weight-bold text-primary">Issue {{ book.title }} by {{ book.author }}</h6>
                 </div>
                 <div class="card-body">
-                    <form action="{% url 'books_issued' book.id %}" method="post">
+                     <form action="{% url 'books_issued' book.id %}" method="post">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="input-id" class="form-label">Select Learner</label>
-                            <select id="input-id" class="form-select form-select-lg mb-3 w-100" name="learner_id" aria-label="Default select example">
+                            <select id="input-id" class="form-select form-select-lg mb-3 w-100" name="student_id" aria-label="Default select example">
                                 {% for learner in learners %}
-                                    <option value="{{learner.id }}">{{  learner.adm_no }} - {{ learner.name }}</option>
+                                    <option value="{{ learner.id }}">{{ learner.adm_no }} - {{ learner.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
